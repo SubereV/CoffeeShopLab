@@ -1,0 +1,41 @@
+<div class="container-fluid header-wrapper " id="header">
+	<!-- this is the Header Wrapper -->
+	<div class="container">
+		<div class="title-wrapper">
+			<div class="title-wrapper-inner">
+				<a class="logo " href="http://www.simplesite.com/us-123cafe/"> </a>
+				<div class="title ">
+					<a class="title  title-link" href="/"
+						th:text="${blogger.name}+'\' Cafe'"></a>
+				</div>
+				<div class="subtitle">Welcome to my website</div>
+			</div>
+		</div>
+		<!-- these are the titles -->
+		<div class="navbar navbar-compact">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse" title="Toggle menu"> <span
+						class="menu-name">Menu</span>
+					</a>
+					<!-- Everything you want hidden at 940px or less, place within here -->
+					<div class="nav-collapse collapse">
+						<ul class="nav" id="topMenu" data-submenu="horizontal">
+							<li th:class="${page=='home'?'active':''} " style=""><a
+								href="/">Home</a></li>
+							<li th:class=" ${page=='about'?'active':'' }" style=""><a
+								href="/about">About my Cakes</a></li>
+							<li th:class=" ${page=='other'?'active':'' } " style=""><a href="/find-cafe"
+								th:text="'Find '+${blogger.name}+'\'s Cafe'"></a></li>
+							<li th:class="${page==''?'active':''} " style=""><a
+								href="/admin">Admin</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- this is the Menu content -->
+	</div>
+</div>
