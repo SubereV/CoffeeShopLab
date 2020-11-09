@@ -45,7 +45,6 @@ public class HomeController {
 		model.addAttribute("page","other");
 		return "FindCafe";
 	}
-	
 
 	@GetMapping("admin")
 	public String admin(ModelMap modelMap) {
@@ -56,6 +55,23 @@ public class HomeController {
 	@GetMapping("login")
 	public String login(@RequestParam(value = "error",defaultValue = "false") boolean loginError, final Model model) {
 		return "admin/login";
+	}
+
+	@GetMapping("/product-management")
+	public String products(ModelMap modelMap){
+		modelMap.addAttribute("menu_list", menuService.findAll());
+		return "admin/products";
+	}
+	@GetMapping("/menu-management")
+	public String menusList(ModelMap modelMap){
+		modelMap.addAttribute("menu_list", menuService.findAll());
+		return "admin/menu";
+	}
+
+
+	@GetMapping("/error")
+	public String error(){
+		return "admin/404";
 	}
 
 	@ModelAttribute("blogger")

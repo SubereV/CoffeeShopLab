@@ -22,6 +22,19 @@ public class MenuServiceImpl implements MenuService {
 	public Menu findByName(String name) {
 		return menuRepository.findByName(name);
 	}
-	
-	
+
+	@Override
+	public Menu getMenuById(Integer id){
+		return menuRepository.findById(id).get();
+	}
+
+	@Override
+	public Integer insert(Menu menu){
+		return  menuRepository.save(menu).getId();
+	}
+
+	@Override
+	public void delete(Integer id){
+		menuRepository.deleteById(id);
+	}
 }

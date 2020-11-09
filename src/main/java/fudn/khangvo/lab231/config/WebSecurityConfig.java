@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()// Cần có trước khi phân quyền
-				.antMatchers("/admin").authenticated()//
+				.antMatchers("/admin","/product-management","/menu-management").authenticated()//
 				.anyRequest().permitAll()//
 				.and().formLogin().loginPage("/login").failureUrl("/login?error=true")// Đăng Nhập bằng form
 				.defaultSuccessUrl("/admin").permitAll()// Đăng Nhập thành công

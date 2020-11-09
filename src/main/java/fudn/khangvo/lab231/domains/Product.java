@@ -25,14 +25,13 @@ public class Product {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "menuId")@JsonIgnore
 	private Menu menu;
-	
+
 	@PrePersist
 	void create() {
 		date = new Date();
 	}
 
 	public Product(String name, String content, String img, Menu menu,double price) {
-		super();
 		this.name = name;
 		this.content = content;
 		this.picture = img;

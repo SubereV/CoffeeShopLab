@@ -10,4 +10,9 @@ public interface MenuService {
 
 	Menu findByName(String name);
 
+	Menu getMenuById(Integer id);
+
+	Integer insert(Menu menu);
+
+    void delete(Integer id);
 }

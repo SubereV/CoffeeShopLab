@@ -18,5 +18,6 @@ public interface ProductService {
 	List<Product> findTop2ByOrderByDateDesc();
 
 	<S extends Product> S save(S entity);
-	
+
+	void delete(Integer id);
 }

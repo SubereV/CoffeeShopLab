@@ -1,9 +1,7 @@
-
 $(document).ready(function () {
     var table = $('#dataTable').DataTable({
         "ajax": "/api/products",
         "columns": [
-            {"data": "id"},
             {"data": "name"},
             {"data": "picture-element"},
             {"data": "content"},
@@ -28,14 +26,15 @@ $(document).ready(function () {
             $("#delete").attr("disabled", false);
             $("#insert_title").attr("hidden", true);
             $("#edit_title").attr("hidden", false);
-            $('#modalForm').attr("action","/api/products/edit");
+            $('#modalForm').attr("action","/products/edit");
             $('#modalForm').find("input[name='name'][type='text']").val(data.name);
             $('#modalForm').find("textarea[name='content']").val(data.content);
+            $('#modalForm').find("input[name='id']").val(data.id);
+            $('#deleteForm').find("input[name='productId']").val(data.id);
             $('#modalForm').find("input[name='price'][type='text']").val(data.price);
             $('#modalForm').find("input[name='picture'][type='hidden']").val(data.picture);
             $('#img-preview').attr("src", data.picture);
             $('#modalForm').find("input[name='picture'][type='hidden']").val(data.picture);
-            $('#modalForm').find("input[name='picture'][type='text']").val(data.picture);
             $('#menu').find('option:selected').removeAttr("selected");
             let target = '#menu option[value=\"' + data.menu + '\"]';
             $(target).attr("selected", true);
@@ -43,14 +42,13 @@ $(document).ready(function () {
         }
     });
     //Bookmark: insert button On click
-    //Todo: create insert form
     $("#insert").click(() => {
         table.$('tr.selected').removeClass('selected');
         $("#insert_title").attr("hidden", false);
         $("#edit").attr("disabled", true);
         $("#delete").attr("disabled", true);
         $("#edit_title").attr("hidden", true);
-        $('#modalForm').attr("action","/api/products/insert");
+        $('#modalForm').attr("action","/products/insert");
         $('#modalForm').find("input[name='name'][type='text']").val("");
         $('#modalForm').find("textarea[name='content']").val("");
         $('#modalForm').find("input[name='price'][type='text']").val("");
